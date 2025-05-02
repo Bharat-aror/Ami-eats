@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Orders</title>
+    <link rel="stylesheet" href="restaurant.css">
+</head>
+<body>
+
+    <h2>Pending Orders</h2>
+    <ul id="orders"></ul>
+
+    <h2>📜 All Orders (Records)</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Time</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="all-orders"></tbody>
+    </table>
+
+    <script>
+        async function fetchOrders() {
+            try {
+                let response = await fetch("http://localhost:5000/orders/Deja Brew");
+                let orders = await response.json();
+
+                if (!Array.isArray(orders) || orders.length === 0) {
+                    document.getElementById("orders").innerHTML = "<p>No pending orders.</p>";
+                    return;
+                }
+
+                document.getElementById("orders").innerHTML = orders.map(order => `
+                    <li id="order-${order._id}">
+                        <strong>${order.items.map(i => i.item).join(", ")}</strong> - ₹${order.items.reduce((total, item) => total + item.price, 0)}
+                        <br>📅 Ordered on: ${new Date(order.orderTime).toLocaleString()}
+                        <br>Status: <span id="status-${order._id}">${order.status}</span>
+                        <br>
+                        <button onclick="markOrderReady('${order._id}')">🍽️ Order Ready</button>
+                    </li>
+                `).join("");
+            } catch (error) {
+                console.error("❌ Error fetching orders:", error);
+            }
+        }
+
+        async function fetchAllOrders() {
+            try {
+                let response = await fetch("http://localhost:5000/all-orders/Deja Brew");
+                let orders = await response.json();
+
+                document.getElementById("all-orders").innerHTML = orders.map(order => `
+                    <tr>
+                        <td>${order.items.map(i => i.item).join(", ")}</td>
+                        <td>₹${order.items.reduce((total, item) => total + item.price, 0)}</td>
+                        <td>${order.orderTime ? new Date(order.orderTime).toLocaleString() : "Unknown"}</td>
+                        <td>${order.status}</td>
+                    </tr>
+                `).join("");
+            } catch (error) {
+                console.error("❌ Error fetching all orders:", error);
+            }
+        }
+
+        async function markOrderReady(orderId) {
+            try {
+                let response = await fetch(`http://localhost:5000/order-status/${orderId}`, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ status: "Order Ready" })
+                });
+
+                if (response.ok) {
+                    console.log(`✅ Order ${orderId} marked as Ready.`);
+                    
+                    // Remove order from pending list
+                    document.getElementById(`order-${orderId}`).remove();
+                    
+                    // Refresh past orders
+                    fetchAllOrders();
+                }
+            } catch (error) {
+                console.error("❌ Error updating order:", error);
+            }
+        }
+
+        fetchOrders();
+        fetchAllOrders();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bollywood</title>
+    <link rel="stylesheet" href="bolly.css">
+</head>
+<body>
+
+    
+    <!-- Bollywood Menu Section -->
+    <div id="menu-page" class="menu-container">
+
+
+        <h2>Bollywood - Menu</h2>
+        <input type="text" id="search-bar" placeholder="Search for a meal..." onkeyup="filterMeals()" style="padding:10px; width: 60%; margin: 10px auto; display: block; border-radius: 5px; border: 1px solid #ccc; font-weight: bold;">
+
+
+        <div id="meal-list" class="menu-items">
+            <div class="meal" onclick="placeOrder('Aloo Paratha', 299, '20%')">
+                <img src="D:\prebooking-app\deja\images\Aloo Paratha.jpg" alt="Aloo Paratha">
+                <p>Aloo Paratha- ₹299 <span class="discount"></span></p>
+            </div>
+            <div class="meal" onclick="placeOrder('Aloo Patty Sub', 199, '10%')">
+                <img src="D:\prebooking-app\deja\images\Aloo Patty Sub.jpg" alt="Aloo Patty Sub">
+                <p>Aloo Patty Sub- ₹199 <span class="discount"></span></p>
+            </div>
+            <div class="meal" onclick="placeOrder('Cheese Burger', 249, '15%')">
+                <img src="D:\prebooking-app\deja\images\Cheese Burger.jpg" alt="Pasta">
+                <p>Cheese Burger- ₹249 <span class="discount"></span></p>
+            </div>
+             <div class="meal" onclick="placeOrder('Chole Bhature', 249, '15%')">
+                <img src="D:\prebooking-app\deja\images\Chole Bhature.jpg" alt="Pasta">
+                <p>Chole Bhature- ₹249 <span class="discount"></span></p>
+            </div>
+        </div>
+        <div class="menu-items">
+            <div class="meal" onclick="placeOrder('Pizza', 70, '20%')">
+                <img src="D:\prebooking-app\nescafe\Major project\Cold coffee .JPG" alt="Pizza">
+                <p>Cold coffee- ₹70 <span class="discount"></span></p>
+            </div>
+            <div class="meal" onclick="placeOrder('Fries', 100, '10%')">
+                <img src="D:\prebooking-app\nescafe\Major project\Fries.JPG" alt="Burger">
+                <p>Fries- ₹100 <span class="discount"></span></p>
+            </div>
+            <div class="meal" onclick="placeOrder('Fruit chaat', 60, '15%')">
+                <img src="D:\prebooking-app\nescafe\Major project\Fruit chaat.JPG" alt="Pasta">
+                <p>Fruit chaat- ₹60 <span class="discount">15% off</span></p>
+            </div>
+            <div class="meal" onclick="placeOrder('Honey chilly potato', 70, '15%')">
+                <img src="D:\prebooking-app\nescafe\Major project\Honey chilly potato .JPG" alt="Pasta">
+                <p>Honey chilly potato - ₹70 <span class="discount">15% off</span></p>
+            </div>
+        </div>  
+         <div class="menu-items">
+            <div class="meal" onclick="placeOrder('Chole kulche', 299, '20%')">
+                <img src="D:\prebooking-app\deja\images\Chole kulche.jpg" alt="Pizza">
+                <p>Chole kulche- ₹299 <span class="discount"></span></p>
+            </div>
+            <div class="meal" onclick="placeOrder('Cold Coffee', 199, '10%')">
+                <img src="D:\prebooking-app\deja\images\cold Coffee.jpg" alt="Burger">
+                <p>Cold Coffee- ₹199 <span class="discount"></span></p>
+            </div>
+            <div class="meal" onclick="placeOrder('Hakka Noodles', 249, '15%')">
+                <img src="D:\prebooking-app\deja\images\hakka Noodles.jpg" alt="Pasta">
+                <p>Hakka Noodles- ₹249 <span class="discount"></span></p>
+            </div>
+            <div class="meal" onclick="placeOrder('Hot Coffee', 249, '15%')">
+                <img src="D:\prebooking-app\deja\images\Hot Coffee.jpg" alt="Pasta">
+                <p>Hot Coffee- ₹249 <span class="discount"></span></p>
+            </div>
+        </div>  
+    </div>
+
+    <!-- Order Confirmation Page -->
+    <div id="order-confirmation" class="order-section" style="display: none;">
+        <h2>Order Now !</h2>
+        <p><strong>Meal:</strong> <span id="meal-name"></span></p>
+        <p><strong>Price:</strong> ₹<span id="meal-price"></span></p>
+        <p><strong>Discount:</strong> <span id="meal-discount"></span></p>
+        <p><strong>pickup Time:</strong> 10-15 minutes</p>
+        <p><strong>Contact Person:</strong> Rahul (+91 9876543210)</p>
+        <p><strong>Pay it Online!</strong></p>
+        <div class="payment-icons">
+            <button onclick="fakePayment()">💳 Pay Now (Simulation)</button>
+
+
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js"></script>
+    <script src="bolly.js"></script>
+    
+</body>
+</html>

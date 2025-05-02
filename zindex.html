@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zomato Clone</title>
+    <link rel="stylesheet" href="zindex.css">
+    <script src="zindex.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="left-nav">
+                
+            </div>
+            <div class="right-nav">
+                <a href="D:\prebooking-app\client\login.html">Log in</a>
+                <a href="D:\prebooking-app\client\signup.html">Sign up</a>
+            </div>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-bg"></div> 
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>Ami Eats</h1>
+            <p>Pre-order your food and save time</p>
+            
+            <!-- Search Bar Section -->
+            <div class="search-container">
+                <input type="text" id="search-bar" placeholder="Search for a restaurant..." onkeyup="searchRestaurant()">
+                <button>🔍</button>
+            </div>
+        </div>
+    </section>
+    
+    <section class="restaurant-section">
+        <h2> Our Restaurants and Cafes </h2>
+    
+        <div class="restaurant-container">
+            <!-- Deja Restaurant Card -->
+            <div class="restaurant-card" id="deja-card">
+                <a href="deja/deja.html">
+                    <div class="restaurant-image">
+                        <span class="promoted-label">Promoted</span>
+                        <img src="picss/DEJA.jpeg" alt="Deja Brew">
+                    </div>
+                </a>
+                <div class="restaurant-info">
+                    <h3 class="restaurant-name">Deja Brew</h3>
+                    <p>Indian cuisine, Fast food</p>
+                    <div class="restaurant-meta">
+                        <span class="rating">4.3 ★</span>
+                        <span class="price">₹200 for one</span>
+                    </div>
+                    <span class="delivery-time">23 min</span>
+                </div>
+            </div>
+    
+            <!-- Nescafe Restaurant Card -->
+            <div class="restaurant-card" id="nescafe-card">
+                <a href="nescafe/nescafe.html">
+                    <div class="restaurant-image">
+                        <span class="discount-label">₹20 OFF</span>
+                        <img src="picss/nescafe.png" alt="Nescafe">
+                    </div>
+                </a>
+                <div class="restaurant-info">
+                    <h3 class="restaurant-name">Nescafe</h3>
+                    <p>Burgers, Maggi, Coffee</p>
+                    <div class="restaurant-meta">
+                        <span class="rating">4.0 ★</span>
+                        <span class="price">₹150 for one</span>
+                    </div>
+                    <span class="delivery-time">27 min</span>
+                </div>
+            </div>
+    
+            <!-- Bollywood Restaurant Card -->
+            <div class="restaurant-card" id="bollywood-card">
+                <a href="bollywood/bolly.html">
+                    <div class="restaurant-image">
+                        <span class="discount-label">Flat 20% OFF</span>
+                        <img src="picss/thaal.jpg" alt="Bollywood">
+                    </div>
+                </a>
+                <div class="restaurant-info">
+                    <h3 class="restaurant-name">Bollywood</h3>
+                    <p>Indian & Chinese cuisine</p>
+                    <div class="restaurant-meta">
+                        <span class="rating">4.3 ★</span>
+                        <span class="price">₹200 for one</span>
+                    </div>
+                    <span class="delivery-time">27 min</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="swiggy-banner">
+        <div class="swiggy-content">
+            <img src="picss/amieats.jpg" alt="Swiggy Logo" class="swiggy-logo">
+        </div>
+        <div class="bancont">
+            <h1>Pre Book your meal now!</h1>
+            <p>Rushing in a hurry? Meals are waiting for you!</p>
+        </div>
+        <div class="swiggy-qr">
+            <img src="picss/banner.png" class="qr-code">
+        </div>
+    </div>
+</body>
+</html>
